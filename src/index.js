@@ -18,7 +18,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 console.log("🚀 Server MODE:", process.env.MODE);
-console.log("🌐 FRONTEND_URL:", process.env.FRONTEND_URL);
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -27,7 +26,7 @@ app.use(cookieParser());
 // Middleware to parse form data (application/x-www-form-urlencoded)
 app.use(express.urlencoded({extended: true, limit: "25kb"})) 
 app.use(cors({
-    origin: process.env.MODE === "production" ? "https://quizversus.vercel.app" : 'http://localhost:5173', // frontend origin
+    origin: "https://quizversus.vercel.app", // frontend origin
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"], // allow cookies to 
 })); 
